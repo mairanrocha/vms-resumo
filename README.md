@@ -1,4 +1,5 @@
 ⚙️ Configuração de Recursos e Dimensionamento na Azure
+
 Este projeto considera o uso de Máquinas Virtuais (VMs) na Microsoft Azure, com foco em desempenho, escalabilidade e otimização de custos.
 
 🔧 Recursos Configuráveis
