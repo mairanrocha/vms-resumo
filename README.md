@@ -1,70 +1,46 @@
-🔧 1. Escolha do Tamanho da Máquina Virtual (VM Size)
-A Azure oferece diversos tamanhos de VMs, agrupados em séries, cada uma voltada para cenários diferentes:
+☁️ Azure VM – Configuração e Dimensionamento
+Este projeto utiliza Máquinas Virtuais (VMs) na Azure, com foco em performance, escalabilidade e controle de custos.
 
-Série B (Burstable): ideal para cargas leves e intermitentes.
+🔧 Recursos Configuráveis
+Tamanho da VM: escolha entre séries como B, D, E, F, N, de acordo com a carga de trabalho.
 
-Série D (Geral): equilibrada entre CPU e memória, boa para aplicações de uso geral.
+vCPU e RAM: definidas pelo tipo da VM.
 
-Série E: mais memória, para bancos de dados e cache.
+Discos:
 
-Série F: mais CPU, para cargas com uso intenso de processamento.
+Sistema operacional: SSD (Standard/Premium)
 
-Série N: com GPU, voltadas para gráficos, IA e machine learning.
+Dados: discos adicionais conforme a necessidade
 
-Série H: computação de alto desempenho (HPC).
+Rede:
 
-Série L: para armazenamento e bancos de dados com alto IOPS.
+IP público/privado
 
-👉 Dica: você pode trocar o tamanho da VM depois, desde que ela esteja desligada e dentro da mesma família compatível.
+VNet (rede virtual)
 
-⚙️ 2. Recursos Configuráveis
-Durante a criação ou atualização de uma VM, você pode configurar:
+NSG (grupo de segurança de rede)
 
-CPU (vCPU): núcleos virtuais atribuídos à VM.
+Extensões e scripts: para automação no provisionamento.
 
-Memória RAM: varia com o tamanho escolhido.
+📊 Dimensionamento (Scaling)
+Vertical (Scale-up): aumento de CPU/memória na mesma VM.
 
-Disco OS: disco do sistema operacional, geralmente SSD (Standard ou Premium).
+Horizontal (Scale-out):
 
-Disco de dados: para armazenar arquivos ou bases de dados.
+Uso de VM Scale Sets para replicar instâncias.
 
-Rede (NIC): configurações de IP público, VNet e NSG (Security Group).
+Ideal para aplicações com alta demanda e distribuição de carga.
 
-Extensões e scripts de inicialização: para automação.
+⚙️ Autoescala (Autoscale)
+Baseada em métricas como uso de CPU, memória ou fila de mensagens.
 
-📈 3. Dimensionamento Vertical e Horizontal
-Dimensionamento vertical: aumentar os recursos da mesma VM (ex: mais RAM ou CPU).
+Regras configuráveis (ex: criar nova instância se CPU > 70% por 5 min).
 
-Feito manualmente ou com escalonamento automático baseado em métricas.
+Definição de mínimo e máximo de instâncias.
 
-Dimensionamento horizontal (escalabilidade):
+💸 Otimização de Custos
+Azure Advisor: recomendações automáticas de desempenho e economia.
 
-VM Scale Sets: permite criar um conjunto de VMs que aumentam/diminuem conforme a demanda.
+Instâncias Reservadas: até 72% de economia para uso contínuo.
 
-Ideal para aplicações distribuídas (como web servers, microsserviços).
-
-🔄 4. Autoescala (Autoscaling)
-Pode ser configurado para escalar com base em:
-
-CPU, uso de memória, fila de mensagens, etc.
-
-Defina:
-
-Regras de escalonamento (ex: “se CPU > 70% por 5 min, criar nova instância”)
-
-Mínimo e máximo de instâncias
-
-💰 5. Custo e Otimização
-Escolher o tamanho correto impacta diretamente no custo.
-
-Azure oferece reservas de instâncias (VM Reserved Instances) com desconto para uso de longo prazo.
-
-Ferramentas como o Azure Advisor sugerem otimizações de recursos.
-
-📋 Resumo das Boas Práticas
-Recurso	Boas Práticas
-Tamanho da VM	Escolha baseado na carga da aplicação
-Disco	Use Premium SSDs para alto desempenho
-Autoescala	Configure em VMs para aplicações variáveis
-Custo	Revise uso com Azure Advisor e Budget
-Rede	Use NSG e VNet para segurança e performance
+Monitoramento de consumo com Azure Cost Management.
